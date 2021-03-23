@@ -2,6 +2,7 @@ const mqtt = require('mqtt');
 
 const config = require('../config.json');
 const db = require('../controller/mongodb');
+const parser = require('../data/data-parser')
 
 var Module = module.exports;
 
@@ -22,7 +23,8 @@ mqttClient.on('message', function (topic, message) {
     message = JSON.parse(message);
     topic = topic.toString();
     if (message.datagram.signature == config.mqtt.signature) {
-        console.log(message.datagram.p1);
+        console.log(parser.parseData(message.datagram.p1));
+        //console.log(message);
     }
     
 });
