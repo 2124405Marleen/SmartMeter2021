@@ -1,0 +1,16 @@
+
+{
+    "http" : {
+        "port": 8080
+    },
+    "mongodb": {
+        "host": "mongodb://localhost:27017/smartmeter"
+    },
+    "mqtt": {
+        "broker": "2",
+        "topic_data": "smartmeter/raw",
+        "username": "",
+        "password": "",
+        "signature": "2019-ETI-EMON-V01-A9F79F-164068"
+    }
+}
