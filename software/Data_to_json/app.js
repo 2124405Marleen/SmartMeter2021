@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 
 const config = require('./config.json');
 const apiv1 = require('./routes/apiv1');
-const mongodb = require('./controller/mongodb');
+const mysqlDB = require('./controller/mysqldb');
 const mqtt = require('./controller/mqtt');
 
 const app = express();

@@ -1,18 +1,22 @@
 const express = require('express');
+const cors = require('cors');
 const router = express.Router();
 
-const test = require('../controller/test');
+const energies = require('../controller/energies');
 const auth = require('../controller/auth');
-// const auth = require();
-// const smartMeter = require();
-
 
 router.post('/login', auth.getToken);
-router.get('/test', auth.validateToken, test.test);
-// router.post('/login', auth.getToken);
-// router.get('/log', auth.validateToken, smartMeter.getLog );
-// router.get('/state', auth.validateToken, wemos.getState);
-
-// router.post('/event/:event', auth.validateToken, smartMeter.postEvent);
+router.get('/energies', cors(), async  (req, res) => {
+    try {
+      console.log('Try to find energies');
+      await energies.findAll((err, data) => {
+        res.send(data);
+      });
+    } catch (error) {
+      console.log(error);
+      //Show the server is the problem
+      res.status(500).send();
+    }
+  });
 
 module.exports = router;

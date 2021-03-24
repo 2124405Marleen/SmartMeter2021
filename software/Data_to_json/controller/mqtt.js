@@ -1,7 +1,7 @@
 const mqtt = require('mqtt');
 
 const config = require('../config.json');
-const db = require('../controller/mongodb');
+const db = require('./mysqldb');
 const parser = require('../data/data-parser')
 
 var Module = module.exports;
@@ -14,7 +14,7 @@ mqttClient.on('connect', () => {
     mqttClient.subscribe(config.mqtt.topic_data, function (err) {
         if (err) {
             console.log("MQTT Error: " + err.message);
-            db.addLog(topic, message);
+            //db.addLog(topic, message);
         }
     });
 });
