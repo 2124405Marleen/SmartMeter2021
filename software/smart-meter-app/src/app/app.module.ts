@@ -9,6 +9,7 @@ import { HomegridComponent } from './homegrid/homegrid.component';
 import {HttpClientModule} from '@angular/common/http';
 import { AboutgridComponent } from './aboutgrid/aboutgrid.component';
 import { StatsgridComponent } from './statsgrid/statsgrid.component';
+import { EnergiedataComponent } from './energiedata/energiedata.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { StatsgridComponent } from './statsgrid/statsgrid.component';
     DataTableComponent,
     HomegridComponent,
     AboutgridComponent,
-    StatsgridComponent
+    StatsgridComponent,
+    EnergiedataComponent
   ],
   imports: [
     BrowserModule,
