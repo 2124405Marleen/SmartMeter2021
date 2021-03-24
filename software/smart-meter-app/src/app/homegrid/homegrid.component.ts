@@ -1,4 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+
+export interface Energie{
+  timestamp: string;
+  offPeakFlow: string;
+  peakFlow: string;
+  offPeakPowerFeed: string;
+  peakPowerFeed: string;
+  currentRate: number;
+  currentPower: string;
+  returnedPower: string;
+  gasUsage: string;
+}
 
 @Component({
   selector: 'app-homegrid',
@@ -7,8 +20,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomegridComponent implements OnInit {
 
-  constructor() { }
-
+  energies: Energie[] = [];
+  // fill energies list with data of database
+  constructor(http: HttpClient) {
+    http.get('http://localhost:3300/energies').subscribe( (rec: Energie[]) => {
+      this.energies = rec;
+    });
+  }
   ngOnInit(): void {
   }
 
