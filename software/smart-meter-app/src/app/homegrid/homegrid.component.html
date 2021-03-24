@@ -2,22 +2,17 @@
 
 
 <div class="container text-center">
-  <h3>What We Do</h3><br>
+  <h1>Slimme meter data</h1><br>
   <div class="row">
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p>Current Project</p>
-    </div>
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p>Project 2</p>
+    <div class="col-sm-8">
+      <app-data-table></app-data-table>
+      <p>Current Data</p>
     </div>
     <div class="col-sm-4">
       <div class="well">
-        <p>Some text..</p>
       </div>
       <div class="well">
-        <p *ngFor="let energie of energies">{{energie.offPeakFlow}}</p>
+        <p *ngFor="let energie of energies">{{energie.peakPowerFeed}}</p>
       </div>
     </div>
   </div>

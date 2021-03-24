@@ -7,12 +7,16 @@ import { AppComponent } from './app.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { HomegridComponent } from './homegrid/homegrid.component';
 import {HttpClientModule} from '@angular/common/http';
+import { AboutgridComponent } from './aboutgrid/aboutgrid.component';
+import { StatsgridComponent } from './statsgrid/statsgrid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DataTableComponent,
-    HomegridComponent
+    HomegridComponent,
+    AboutgridComponent,
+    StatsgridComponent
   ],
   imports: [
     BrowserModule,
