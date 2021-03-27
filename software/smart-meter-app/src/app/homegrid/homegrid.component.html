@@ -3,16 +3,22 @@
   <div class="row">
     <div class="col-sm-8">
       <p>Current Data</p>
+      <app-energiedata></app-energiedata>
     </div>
     <div class="col-sm-4">
       <div class="well">
-        <h2>Currect Usage:</h2>
+        <h2>Currect usage:</h2>
         <br>
         <p>Gas: {{currectGasUasge}} m^3</p>
         <p>Power: {{currectUsage}} kW</p>
       </div>
       <div class="well">
-        <app-energiedata></app-energiedata>
+        <h2>Made costs: </h2>
+        <p>OffPeak: {{offPeakCosts}} euro</p>
+        <p>Peak: {{peakCosts}} euro</p>
+      </div>
+      <div class="well">
+        <h2>Verbruik afgelopen uur: </h2>
       </div>
     </div>
   </div>

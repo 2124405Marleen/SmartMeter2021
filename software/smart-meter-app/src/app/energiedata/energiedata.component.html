@@ -1,3 +1,13 @@
-<p *ngFor="let energie of energiedatas">Smartmeter: {{energie.gasUsage}}</p>
-
-
+<ngx-charts-line-chart *ngIf="energieUsageDuringTime.length > 0"
+  [scheme]="colorScheme"
+  [legend]= "true"
+  [showXAxisLabel]= "true"
+  [showYAxisLabel]= "true"
+  [xAxis]= "true"
+  [yAxis]= "true"
+  [xAxisLabel]= "'Time'"
+  [yAxisLabel]= "'Power usages'"
+  [timeline]= "true"
+  [results]="energieUsageDuringTime"
+>
+</ngx-charts-line-chart>

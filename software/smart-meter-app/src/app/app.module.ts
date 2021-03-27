@@ -10,6 +10,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { AboutgridComponent } from './aboutgrid/aboutgrid.component';
 import { StatsgridComponent } from './statsgrid/statsgrid.component';
 import { EnergiedataComponent } from './energiedata/energiedata.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { EnergiedataComponent } from './energiedata/energiedata.component';
     BrowserModule,
     ChartModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
   providers: [CategoryService, LineSeriesService],
   bootstrap: [AppComponent]

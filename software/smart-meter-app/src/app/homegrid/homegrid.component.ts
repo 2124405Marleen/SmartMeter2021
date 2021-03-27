@@ -23,6 +23,8 @@ export class HomegridComponent implements OnInit {
   energies: Energie[] = [];
   currectUsage: string;
   currectGasUasge: string;
+  offPeakCosts: number;
+  peakCosts: number;
   // fill energies list with data of database
   constructor(http: HttpClient) {
     http.get('http://localhost:3300/energies').subscribe( (rec: Energie[]) => {
@@ -42,7 +44,9 @@ export class HomegridComponent implements OnInit {
           },
           this.currectGasUasge = output.gasUsage.substring(1, 9),
           this.currectUsage = output.currentPower.substring(1, 6),
-        );
+          this.offPeakCosts = parseFloat(output.offPeakFlow),
+          this.peakCosts = parseFloat(output.peakFlow) * 0.13,
+      );
         this.energies = tmp;
       }
     });

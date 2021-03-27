@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 export interface Energiedata{
-  timestamp: string;
+  timeStamp: string;
   offPeakFlow: string;
   peakFlow: string;
   offPeakPowerFeed: string;
@@ -13,6 +13,13 @@ export interface Energiedata{
   gasUsage: string;
 }
 
+export interface EnergieChartData{
+  name: string;
+  series:  any[];
+    //name: string;
+    //value: number;
+}
+
 @Component({
   selector: 'app-energiedata',
   templateUrl: './energiedata.component.html',
@@ -21,14 +28,20 @@ export interface Energiedata{
 export class EnergiedataComponent implements OnInit {
 
   energiedatas: Energiedata[] = [];
-
+  energieUsageDuringTime: EnergieChartData[] = [];
+  nameMaarten = 'Maarten';
+  colorScheme = {
+    domain: ['#5AA454', '#003311', '#00b33c', '#66ff99', ]
+  };
   constructor(http: HttpClient) {
     http.get('http://localhost:3300/energies').subscribe( (rec: Energiedata[]) => {
       // this.energiedatas = rec;
       const tmp = [];
+      const tmpChart = [];
+      const data = [];
       for (const output of rec) {
         tmp.push({
-          timestamp: output.timestamp,
+          timestamp: output.timeStamp,
           offPeakFlow: parseFloat(output.offPeakFlow.substring(1, 10)),
           peakFlow: parseFloat(output.peakFlow.substring(1, 10)),
           offPeakPowerFeed: parseFloat(output.offPeakPowerFeed.substring(1, 10)),
@@ -38,8 +51,17 @@ export class EnergiedataComponent implements OnInit {
           returnedPower: parseFloat(output.returnedPower.substring(1, 6)),
           gasUsage: parseFloat(output.gasUsage.substring(1, 9)),
         });
-        this.energiedatas = tmp;
+
+        data.push({name: output.timeStamp.substring(4, 6) + '-' + output.timeStamp.substring(2, 4) + '-' + output.timeStamp.substring(0, 2) + ' ' +
+            output.timeStamp.substring(6, 8) + ':' + output.timeStamp.substring(8, 10),
+          value: parseFloat(output.currentPower.substring(1, 6))});
+        // 21 03 23 11 51 25W
       }
+
+      this.energieUsageDuringTime.push({name: this.nameMaarten, series: data});
+      console.log(this.energieUsageDuringTime);
+      this.energiedatas = tmp;
+      // this.energieUsageDuringTime = ;
     });
   }
 
