@@ -2,13 +2,17 @@
   <h1>Slimme meter data</h1><br>
   <div class="row">
     <div class="col-sm-8">
-      <app-data-table></app-data-table>
       <p>Current Data</p>
     </div>
     <div class="col-sm-4">
       <div class="well">
+        <h2>Currect Usage:</h2>
+        <br>
+        <p>Gas: {{currectGasUasge}} m^3</p>
+        <p>Power: {{currectUsage}} kW</p>
       </div>
       <div class="well">
+        <app-energiedata></app-energiedata>
       </div>
     </div>
   </div>
