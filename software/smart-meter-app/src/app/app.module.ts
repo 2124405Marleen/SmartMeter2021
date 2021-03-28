@@ -7,20 +7,19 @@ import { AppComponent } from './app.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { HomegridComponent } from './homegrid/homegrid.component';
 import {HttpClientModule} from '@angular/common/http';
-import { AboutgridComponent } from './aboutgrid/aboutgrid.component';
-import { StatsgridComponent } from './statsgrid/statsgrid.component';
 import { EnergiedataComponent } from './energiedata/energiedata.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AskedHoursComponent } from './asked-hours/asked-hours.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DataTableComponent,
     HomegridComponent,
-    AboutgridComponent,
-    StatsgridComponent,
-    EnergiedataComponent
+    EnergiedataComponent,
+    AskedHoursComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     NgxChartsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [CategoryService, LineSeriesService],
   bootstrap: [AppComponent]

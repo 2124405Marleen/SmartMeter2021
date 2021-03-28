@@ -1,5 +1,13 @@
-<ngx-charts-line-chart *ngIf="energieUsageDuringTime.length > 0"
+<h2>Verbruikte energie over tijd</h2>
+<label>
+  How many hours do you wanna see?:
+  <input type="number" [formControl]="nHours" required [maxLength]="2" [min]="1">
+</label>
+
+<ngx-charts-line-chart
+  *ngIf="energieUsageDuringTime.length > 0"
   [scheme]="colorScheme"
+  [view]="[600,400]"
   [legend]= "true"
   [showXAxisLabel]= "true"
   [showYAxisLabel]= "true"
@@ -11,4 +19,3 @@
   [results]="energieUsageDuringTime"
 >
 </ngx-charts-line-chart>
-

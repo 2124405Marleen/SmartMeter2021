@@ -2,8 +2,8 @@
   <h1>Slimme meter data</h1><br>
   <div class="row">
     <div class="col-sm-8">
-      <p>Current Data</p>
-      <app-energiedata></app-energiedata>
+        <h2>Huidig verbruik</h2>
+        <app-energiedata></app-energiedata>
     </div>
     <div class="col-sm-4">
       <div class="well">
@@ -13,13 +13,22 @@
         <p>Power: {{currectUsage}} kW</p>
       </div>
       <div class="well">
-        <h2>Made costs: </h2>
+        <h2>Made costs:</h2>
         <p>OffPeak: {{offPeakCosts}} euro</p>
         <p>Peak: {{peakCosts}} euro</p>
       </div>
-      <div class="well">
-        <h2>Verbruik afgelopen uur: </h2>
-      </div>
+    </div>
+</div>
+  <div class="row">
+  <div class="col-sm-8">
+    <app-asked-hours></app-asked-hours>
+  </div>
+  <div class="col-sm-4">
+    <div class="well">
+      <h2>Verbruik afgelopen uur:</h2>
+    </div>
+    <div class="well">
+      <h2>Status:</h2>
     </div>
   </div>
-</div><br>
+  </div>

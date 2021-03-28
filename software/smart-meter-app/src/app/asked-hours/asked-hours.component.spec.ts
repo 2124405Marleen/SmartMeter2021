@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StatsgridComponent } from './statsgrid.component';
+import { AskedHoursComponent } from './asked-hours.component';
 
-describe('StatsgridComponent', () => {
-  let component: StatsgridComponent;
-  let fixture: ComponentFixture<StatsgridComponent>;
+describe('AskedHoursComponent', () => {
+  let component: AskedHoursComponent;
+  let fixture: ComponentFixture<AskedHoursComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StatsgridComponent ]
+      declarations: [ AskedHoursComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StatsgridComponent);
+    fixture = TestBed.createComponent(AskedHoursComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
