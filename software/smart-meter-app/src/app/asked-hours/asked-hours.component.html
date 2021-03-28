@@ -1,11 +1,12 @@
 <h2>Verbruikte energie over tijd</h2>
 <label>
   How many hours do you wanna see?:
-  <input type="number" [formControl]="nHours" required [maxLength]="2" [min]="1">
+  <input type="number" [formControl]="nHours">
+  <span style="color: red" *ngIf="!nHours.valid">ongeldige waarde</span>
 </label>
 
 <ngx-charts-line-chart
-  *ngIf="energieUsageDuringTime.length > 0"
+  *ngIf="energieUsageDuringTime.length > 0 && energieUsageDuringTime[0].series.length > 0; else NoData"
   [scheme]="colorScheme"
   [view]="[600,400]"
   [legend]= "true"
@@ -19,3 +20,7 @@
   [results]="energieUsageDuringTime"
 >
 </ngx-charts-line-chart>
+<ng-template #NoData>
+  <br/>
+ <span> Er is geen data beschikbaar voor deze periodes</span>
+</ng-template>

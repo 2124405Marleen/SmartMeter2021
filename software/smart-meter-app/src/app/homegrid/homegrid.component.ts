@@ -23,8 +23,8 @@ export class HomegridComponent implements OnInit {
   energies: Energie[] = [];
   currectUsage: string;
   currectGasUasge: string;
-  offPeakCosts: number;
-  peakCosts: number;
+  offPeakCosts = 0;
+  peakCosts = 0;
   // fill energies list with data of database
   constructor(http: HttpClient) {
     http.get('http://localhost:3300/energies').subscribe( (rec: Energie[]) => {
