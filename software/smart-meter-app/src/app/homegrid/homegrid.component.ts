@@ -25,6 +25,7 @@ export class HomegridComponent implements OnInit {
   currectGasUasge: string;
   offPeakCosts = 0;
   peakCosts = 0;
+  currentRate = 0;
   // fill energies list with data of database
   constructor(http: HttpClient) {
     http.get('http://localhost:3300/energies').subscribe( (rec: Energie[]) => {
@@ -46,6 +47,7 @@ export class HomegridComponent implements OnInit {
           this.currectUsage = output.currentPower.substring(1, 6),
           this.offPeakCosts = parseFloat(output.offPeakFlow),
           this.peakCosts = parseFloat(output.peakFlow) * 0.13,
+          this.currentRate = output.currentRate
       );
         this.energies = tmp;
       }
