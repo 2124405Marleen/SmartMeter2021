@@ -1,8 +1,7 @@
 const mysql = require("mysql")
 const config = require('../config.json');
 const SmartMeterLog = require('../models/smartmeterlog');
-const router = require("../routes/apiv1");
-import {HttpClient} from '@angular/common/http';
+
 
 var Module = module.exports;
 Module.addLog = addLog;
