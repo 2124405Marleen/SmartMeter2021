@@ -1,7 +1,6 @@
 const sql = require('../controller/mysqldb');
 
 var Module = module.exports;
-// Module = energy;
 
 const energy = function (energy){
     this.timestamp = energy.timestamp;
@@ -14,7 +13,7 @@ const energy = function (energy){
     this.returnedPower = energy.returnedPower;
     this.gasUsage = energy.gasUsage;
   }
-
+  
   energy.getAll = async onComplete => {
     await sql.query("SELECT * from data_maarten_smartmeter", (err, res) => {
       if(err) {
@@ -25,5 +24,6 @@ const energy = function (energy){
       console.log("Energie: ", res);
       onComplete(null, res);
     });
-  
-  }
+}
+
+Module.energy = energy;

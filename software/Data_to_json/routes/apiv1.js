@@ -3,9 +3,7 @@ const cors = require('cors');
 const router = express.Router();
 
 const energies = require('../controller/energies');
-const auth = require('../controller/auth');
 
-router.post('/login', auth.getToken);
 router.get('/energies', cors(), async  (req, res) => {
     try {
       console.log('Try to find energies');
