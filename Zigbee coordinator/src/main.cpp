@@ -58,7 +58,7 @@ void connectMQTT()
       doc["Time"] = ntp.getEpochTime();
       String output;
       serializeJson(doc, output);
-      mqtt.publish(MQTT_SUBSCRIBE_LOGIN, output.c_str());
+      mqtt.publish(MQTT_TOPIC, output.c_str());
       break;
     }
   }
@@ -113,7 +113,7 @@ void loop()
         message += (char)xbeeFrameData[i];
       }
       message = parseValuesToJson(message);
-      mqtt.publish(MQTT_SUBSCRIBE_DATA, message.c_str());
+      mqtt.publish(MQTT_TOPIC, message.c_str());
       ssh.println(message);
     }
   }

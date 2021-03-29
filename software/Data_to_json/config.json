@@ -11,8 +11,10 @@
         "db": "Marleen_smartmeterdata"
     },
     "mqtt": {
-        "broker": "192.168.2.22",
+        "broker": "5.196.95.208",
         "topic_data": "smartmeter/raw",
+        "topic_data_Xbee": "Smartmeter-Maarten",
+        "topic_login": "Smartmeter2021",
         "username": "username",
         "password": "password",
         "signature": "2019-ETI-EMON-V01-A9F79F-164068"

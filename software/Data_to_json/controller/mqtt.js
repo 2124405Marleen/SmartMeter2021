@@ -18,15 +18,21 @@ mqttClient.on('connect', () => {
             //db.addLog(topic, message);
         }
     });
+    mqttClient.subscribe(config.mqtt.topic_data_Xbee, function (err) {
+        if (err) {
+            console.log("MQTT Error XBEE: " + err.message);
+        }
+    });
 });
 
 mqttClient.on('message', function (topic, message) {
     message = JSON.parse(message);
     topic = topic.toString();
-    if (message.datagram.signature == config.mqtt.signature) {
-        console.log(parser.parseData(message.datagram.p1));
-        addToDB(parser.parseData(message.datagram.p1));
-        //console.log(message);
+    if (topic == config.mqtt.topic_data && message.datagram.signature == config.mqtt.signature) {
+            console.log(parser.parseData(message.datagram.p1));
+            addToDB(parser.parseData(message.datagram.p1));
+    } else if (topic == config.mqtt.topic_data_Xbee) {
+        console.log(message);
     }
     
 });
