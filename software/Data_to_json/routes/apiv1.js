@@ -22,7 +22,7 @@ router.get('/energies', cors(), async  (req, res) => {
     }
   });
 
-router.post('/energies', async (req, res) => {
+router.post('/energies', cors(), async (req, res) => {
   try{
     let temperate;
     let time;
