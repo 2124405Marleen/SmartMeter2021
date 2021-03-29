@@ -30,7 +30,7 @@ mqttClient.on('message', function (topic, message) {
     topic = topic.toString();
     if (topic == config.mqtt.topic_data && message.datagram.signature == config.mqtt.signature) {
             console.log(parser.parseData(message.datagram.p1));
-            addToDB(parser.parseData(message.datagram.p1));
+            addToDB(parser.parseData(message.datagram.p1)); //TODO really add to db
     } else if (topic == config.mqtt.topic_data_Xbee) {
         console.log(message);
     }

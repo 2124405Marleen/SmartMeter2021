@@ -1,6 +1,8 @@
 const mysql = require("mysql")
 const config = require('../config.json');
 const SmartMeterLog = require('../models/smartmeterlog');
+const router = require("../routes/apiv1");
+import {HttpClient} from '@angular/common/http';
 
 var Module = module.exports;
 Module.addLog = addLog;
@@ -21,20 +23,23 @@ function addLog(topic, message) {
 }
 
 
-function addToDB(data) {
-    console.log(data);
+function addToDB(data){
+    // console.log(data);
 
-    DBconnect.getConnection(function(error, connection) {
-        if (error) throw error;
-        connection.query('SELECT * from data_maarten_smartmeter', function (error, result) {
-            if (error) {
-                connection.release();
-                return;
-            }
-            console.log('data inserted');
-            connection.release();
-        });
-    })
+    // DBconnect.getConnection(function(error, connection) {
+    //     if (error) throw error;
+    //     connection.query('SELECT * from data_maarten_smartmeter', function (error, result) {
+    //         if (error) {
+    //             connection.release();
+    //             return;
+    //         }
+    //         connection.release();
+    //     });
+    // }) 
+    this.http.post('http://localhost:3000/energies', data).subscribe(rec => {
+        console.log('data added');
+        console.log(rec);
+      });
 }
 
 
