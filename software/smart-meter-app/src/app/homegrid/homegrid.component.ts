@@ -45,7 +45,7 @@ export class HomegridComponent implements OnInit {
           },
           this.currectGasUasge = output.gasUsage.substring(1, 9),
           this.currectUsage = output.currentPower.substring(1, 6),
-          this.offPeakCosts = parseFloat(output.offPeakFlow),
+          this.offPeakCosts = parseFloat(output.offPeakFlow) * 0.11,
           this.peakCosts = parseFloat(output.peakFlow) * 0.13,
           this.currentRate = output.currentRate
       );

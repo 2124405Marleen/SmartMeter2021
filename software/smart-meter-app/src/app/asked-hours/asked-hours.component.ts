@@ -23,21 +23,21 @@ export class AskedHoursComponent implements OnInit {
   };
 
  // today: Date = new Date();
-  today = new Date();
+  startData = new Date();
 
   constructor(private http: HttpClient) {
-    this.today.setHours(this.today.getHours() - this.nHours.value);
+    this.startData.setHours(this.startData.getHours() - this.nHours.value);
     //  this.today.setDate(23);
     this.GetAskedHourData();
 
 
     this.nHours.valueChanges.subscribe(rec => {
-      this.today = new Date();
+      this.startData = new Date();
       //  this.today.setDate(23);
       console.log(this.energieUsageDuringTime);
-      this.today.setHours(this.today.getHours() - rec);
+      this.startData.setHours(this.startData.getHours() - rec);
 
-      console.log('date: ' + this.today);
+      console.log('date: ' + this.startData);
 
       this.GetAskedHourData();
 
@@ -51,7 +51,7 @@ export class AskedHoursComponent implements OnInit {
       const tmpChart = [];
       const data = [];
 
-      const from = this.today;
+      const from = this.startData;
       const to = new Date();
       rec = rec.filter(res => {
 
