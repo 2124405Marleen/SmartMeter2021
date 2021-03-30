@@ -30,11 +30,16 @@ export class TemperatureShowComponent implements OnInit {
   constructor(private http: HttpClient) {
     http.get('http://localhost:3300/temp').subscribe((rec: Temp[]) => {
       const tmp = [];
-      for (const output of rec) {
-        tmp.push({value: output.Temperature, name: output.Time});
+      for (var i = rec.length - 1; i > 0; i = i - 10) {
+        var date = new Date(rec[i].Time * 1000);
+        var hours = date.getHours();
+        var minutes = "0" + date.getMinutes();
+        var seconds = "0" + date.getSeconds();
+        var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+        tmp.push({value: rec[i].Temperature, name: formattedTime});
       }
       console.log('HIEROOOOO');
-      console.log('temp ' + tmp[1].value + ' , time: ' + tmp[1].name);
+      console.log('temp ' + tmp[1].value + ' , time: ' + formattedTime);
       this.tempData.push({name: 'Maarten', series: tmp});
       // console.log(this.tempData);
     });
