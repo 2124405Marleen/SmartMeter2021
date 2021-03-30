@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AskedHoursComponent } from './asked-hours/asked-hours.component';
 import { TemperatureShowComponent } from './temperature-show/temperature-show.component';
+import { EnergieUsePastHourComponent } from './energie-use-past-hour/energie-use-past-hour.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TemperatureShowComponent } from './temperature-show/temperature-show.co
     HomegridComponent,
     EnergiedataComponent,
     AskedHoursComponent,
-    TemperatureShowComponent
+    TemperatureShowComponent,
+    EnergieUsePastHourComponent
   ],
   imports: [
     BrowserModule,

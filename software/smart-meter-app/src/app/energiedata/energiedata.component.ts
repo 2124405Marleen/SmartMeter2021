@@ -15,9 +15,7 @@ export interface Energiedata{
 
 export interface EnergieChartData{
   name: string;
-  series:  any[];
-    //name: string;
-    //value: number;
+  series: any[];
 }
 
 @Component({
@@ -35,9 +33,7 @@ export class EnergiedataComponent implements OnInit {
   };
   constructor(http: HttpClient) {
     http.get('http://localhost:3300/energies').subscribe( (rec: Energiedata[]) => {
-      // this.energiedatas = rec;
       const tmp = [];
-      const tmpChart = [];
       const data = [];
       for (const output of rec) {
         tmp.push({
@@ -52,6 +48,7 @@ export class EnergiedataComponent implements OnInit {
           gasUsage: parseFloat(output.gasUsage.substring(1, 9)),
         });
 
+        // tslint:disable-next-line:max-line-length
         data.push({name: output.timeStamp.substring(4, 6) + '-' + output.timeStamp.substring(2, 4) + '-' + output.timeStamp.substring(0, 2) + ' ' +
             output.timeStamp.substring(6, 8) + ':' + output.timeStamp.substring(8, 10),
           value: parseFloat(output.currentPower.substring(1, 6))});
@@ -59,7 +56,7 @@ export class EnergiedataComponent implements OnInit {
       }
 
       this.energieUsageDuringTime.push({name: this.nameMaarten, series: data});
-      console.log(this.energieUsageDuringTime);
+      //  console.log(this.energieUsageDuringTime);
       this.energiedatas = tmp;
       // this.energieUsageDuringTime = ;
     });

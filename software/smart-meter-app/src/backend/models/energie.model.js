@@ -21,7 +21,7 @@ Energie.getAll = async onComplete => {
       onComplete(null, err);
       return;
     }
-    console.log("Energie: ", res);
+    // console.log("Energie: ", res);
     onComplete(null, res);
   });
 

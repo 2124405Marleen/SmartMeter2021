@@ -34,10 +34,10 @@ export class AskedHoursComponent implements OnInit {
     this.nHours.valueChanges.subscribe(rec => {
       this.startData = new Date();
       //  this.today.setDate(23);
-      console.log(this.energieUsageDuringTime);
+      //  console.log(this.energieUsageDuringTime);
       this.startData.setHours(this.startData.getHours() - rec);
 
-      console.log('date: ' + this.startData);
+     //  console.log('date: ' + this.startData);
 
       this.GetAskedHourData();
 
@@ -73,7 +73,7 @@ export class AskedHoursComponent implements OnInit {
 
 
         const time = new Date(year, month, day, hour, minute, second);
-        console.log(time);
+        //  console.log(time);
 
 
 
@@ -84,7 +84,7 @@ export class AskedHoursComponent implements OnInit {
 
       });
 
-      console.log(rec);
+     //  console.log(rec);
       for (const output of rec) {
         tmp.push({
           timestamp: output.timeStamp,
