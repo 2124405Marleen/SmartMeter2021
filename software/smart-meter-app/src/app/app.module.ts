@@ -12,6 +12,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AskedHoursComponent } from './asked-hours/asked-hours.component';
+import { TemperatureShowComponent } from './temperature-show/temperature-show.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AskedHoursComponent } from './asked-hours/asked-hours.component';
     DataTableComponent,
     HomegridComponent,
     EnergiedataComponent,
-    AskedHoursComponent
+    AskedHoursComponent,
+    TemperatureShowComponent
   ],
   imports: [
     BrowserModule,
