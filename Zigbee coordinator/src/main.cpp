@@ -28,8 +28,6 @@ String parseValuesToJson(String incoming)
 
   //use delimiter (-) to receive values from xbee message
   String temp = incoming.substring(0, incoming.indexOf('-'));
-  String hum = incoming.substring(incoming.indexOf('-') + 1, incoming.indexOf('-', incoming.indexOf('-') + 1));
-  String bright = incoming.substring(incoming.indexOf('-', incoming.indexOf('-') + 1) + 1);
 
   StaticJsonDocument<128> doc;
 
