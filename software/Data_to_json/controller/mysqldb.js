@@ -24,7 +24,6 @@ function addLog(topic, message) {
 
 
 function addXbeeToDB(data) {
-    console.log('AM ID ADDING TO DB!?!?!');
 
 
     sql.query("INSERT INTO `data_maarten_zigbee` (`Temperature`, `Time`) VALUES (?,?)", [data.temperature, data.Time] , (err, res) => {
