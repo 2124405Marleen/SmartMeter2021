@@ -1,0 +1,22 @@
+
+{
+    "http" : {
+        "port": 8080
+    },
+    "mysql": {
+        "host": "underthing.unobtainium.nl",
+        "port": "3307",
+        "user": "SmartSensor",
+        "password": "1Welkom#12",
+        "db": "Marleen_smartmeterdata"
+    },
+    "mqtt": {
+        "broker": "5.196.95.208",
+        "topic_data": "smartmeter/raw",
+        "topic_data_Xbee": "Smartmeter-Maarten",
+        "topic_login": "Smartmeter2021",
+        "username": "username",
+        "password": "password",
+        "signature": "2019-ETI-EMON-V01-A9F79F-164068"
+    }
+}
