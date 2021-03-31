@@ -1,0 +1,16 @@
+<h2>Temperatuursensor XBEE</h2>
+<ngx-charts-line-chart *ngIf="tempData.length > 0"
+                       [scheme]="colorScheme"
+
+                       [legend]= "true"
+                       [showXAxisLabel]= "true"
+                       [showYAxisLabel]= "true"
+                       [xAxis]= "true"
+                       [yAxis]= "true"
+                       [xAxisLabel]= "'Time'"
+                       [yAxisLabel]= "'Temperature'"
+                       [timeline]= "true"
+                       [results]="tempData"
+>
+</ngx-charts-line-chart>
+
